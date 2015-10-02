@@ -16,31 +16,15 @@ import javafx.stage.Stage;
  *
  * @author eldin
  */
-public class DevAssignment extends Application {
-    
-    public static Stage primaryStage;
-    Parent root;
+public class register extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+    public void start(Stage stage) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
         
         Scene scene = new Scene(root);
-        primaryStage = stage;
         stage.setScene(scene);
-        stage.show();
         stage.setResizable(false);
+        stage.show();
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
-    public void close(){
-        primaryStage.close();
-    }
-    
 }

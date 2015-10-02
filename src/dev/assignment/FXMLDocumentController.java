@@ -5,12 +5,17 @@
  */
 package dev.assignment;
 
+import com.sun.corba.se.impl.logging.ActivationSystemException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -22,9 +27,21 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private AnchorPane content;
+    
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws Exception {
+        sqlConnector sql = new sqlConnector();
+        sql.connect();
+    }
+    
+    @FXML
+    private void registerAccountAction() throws IOException{
+        register reg = new register();
+        reg.start(new Stage());
+        
+        DevAssignment dev = new DevAssignment();
+        dev.close();
     }
     
     @Override

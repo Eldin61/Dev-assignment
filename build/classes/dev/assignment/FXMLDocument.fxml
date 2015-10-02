@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="609.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="dev.assignment.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="content" prefHeight="503.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.assignment.FXMLDocumentController">
     <children>
-        <Button fx:id="button" layoutX="128.0" layoutY="88.0" onAction="#handleButtonAction" text="Click Me!" />
+        <Button fx:id="button" layoutX="272.0" layoutY="318.0" onAction="#handleButtonAction" style="-fx-background-color: #00afd4;" text="Play!" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TextField layoutX="230.0" layoutY="227.0" />
+      <PasswordField layoutX="230.0" layoutY="277.0" />
+      <Label layoutX="278.0" layoutY="210.0" text="Username" />
+      <Label layoutX="280.0" layoutY="260.0" text="Password" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="340.0" text="Half life 3" textFill="#00afd4">
+         <font>
+            <Font name="Georgia" size="30.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="registerUrl" layoutX="14.0" layoutY="466.0" onAction="#registerAccountAction" text="Don't have an account yet? Click here!" />
     </children>
 </AnchorPane>
