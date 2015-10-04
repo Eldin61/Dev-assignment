@@ -5,6 +5,8 @@
  */
 package dev.assignment;
 
+import entitymanagers.findUser;
+
 import com.sun.corba.se.impl.logging.ActivationSystemException;
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +16,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -30,9 +34,19 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane content;
     
     @FXML
+    private TextField userTF;
+    
+    @FXML
+    private PasswordField passTF;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) throws Exception {
-        sqlConnector sql = new sqlConnector();
-        sql.connect();
+            findUser find = new findUser();
+            
+            String username = userTF.getText();
+            String password = passTF.getText();
+            
+            find.findUser(username, password);
     }
     
     @FXML
