@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,22 +8,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="609.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.assignment.registerController">
    <children>
-      <TextField layoutX="230.0" layoutY="151.0" />
-      <Label layoutX="279.0" layoutY="134.0" text="Username" />
-      <Label layoutX="280.0" layoutY="182.0" text="Password" />
-      <Label layoutX="258.0" layoutY="228.0" text="Confirm password" />
-      <Label layoutX="288.0" layoutY="280.0" text="e-mail" />
-      <Button layoutX="275.0" layoutY="340.0" mnemonicParsing="false" style="-fx-background-color: #00afd4;" text="Register!" textFill="WHITE" />
-      <Label layoutX="14.0" layoutY="14.0" text="Half life 3" textFill="#00afd4">
+      <TextField fx:id="userTF" layoutX="126.0" layoutY="145.0" />
+      <Label layoutX="174.0" layoutY="122.0" text="Username" />
+      <Label layoutX="176.0" layoutY="182.0" text="Password" />
+      <Label layoutX="386.0" layoutY="122.0" text="First name" />
+      <Button fx:id="registerBtn" layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerUser" style="-fx-background-color: #00afd4;" text="Register!" textFill="WHITE" />
+      <Label layoutX="89.0" layoutY="14.0" text="Half life 3" textFill="#00afd4">
          <font>
             <Font name="Georgia" size="30.0" />
          </font>
       </Label>
-      <PasswordField layoutX="232.0" layoutY="199.0" />
-      <PasswordField layoutX="232.0" layoutY="245.0" />
-      <TextField layoutX="232.0" layoutY="297.0" />
+      <PasswordField fx:id="passTF" layoutX="126.0" layoutY="199.0" />
+      <TextField fx:id="firstTF" layoutX="338.0" layoutY="145.0" />
+      <TextField fx:id="lastTF" layoutX="338.0" layoutY="199.0" />
+      <TextField fx:id="ibanTF" layoutX="338.0" layoutY="252.0" />
+      <Label layoutX="387.0" layoutY="182.0" text="Last name" />
+      <Label layoutX="399.0" layoutY="235.0" text="IBAN" />
+      <Label fx:id="corrPass" layoutX="154.0" layoutY="285.0" textFill="#2be837" />
+      <Label fx:id="incPass" layoutX="137.0" layoutY="285.0" textFill="#eb0f0f" />
+      <ImageView fitHeight="45.0" fitWidth="55.0" layoutX="24.0" layoutY="18.0" onMouseClicked="#previous" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/arrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

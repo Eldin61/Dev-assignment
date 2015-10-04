@@ -18,6 +18,8 @@ import javafx.stage.Stage;
  */
 public class register extends Application {
     
+    private static Stage primaryStage;
+    
     @Override
     public void start(Stage stage) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
@@ -26,5 +28,11 @@ public class register extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        
+        primaryStage = stage;
+    }
+    
+    public void close(){
+        primaryStage.close();
     }
 }
