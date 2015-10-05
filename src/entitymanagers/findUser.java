@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,8 @@ public class findUser {
         EntityManager em = emFactory.createEntityManager();
         Users user = em.find(Users.class, username);
         
-        if (username.equals(user.getUserName()) & password.equals(user.getPassword())){
+        try {
+             if (username.equals(user.getUserName()) & password.equals(user.getPassword())){
             DevAssignment dev = new DevAssignment();
             
             dev.close();
@@ -33,7 +35,13 @@ public class findUser {
             charScreen chars = new charScreen();
             
             chars.start(new Stage());
+        } else {
+            JOptionPane.showMessageDialog(null, "Bad Credentials!");
         }
+        } catch (NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Bad credentials!");
+        }
+        
     }
     
 }
