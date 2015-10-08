@@ -44,12 +44,19 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws Exception {
             findUser find = new findUser();
             findStats stats = new findStats();
+            charScreenController chara = new charScreenController();
             
             String username = userTF.getText();
+            
             String password = passTF.getText();
             
             find.findUser(username, password);
             find.findStats(username);
+            chara.charScreenController(username);
+            
+            ownsService shit = new ownsService();
+            shit.testshit();
+
     }
     
     @FXML

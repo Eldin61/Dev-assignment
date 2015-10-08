@@ -35,6 +35,7 @@ public class findUser {
             charScreen chars = new charScreen();
             
             chars.start(new Stage());
+            
         } else {
             JOptionPane.showMessageDialog(null, "Bad Credentials!");
         }
