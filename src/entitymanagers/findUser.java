@@ -43,5 +43,21 @@ public class findUser {
         }
         
     }
+
+    public void findStats(String username) throws Exception{
+        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
+        EntityManager em = emFactory.createEntityManager();
+        Users user = em.find(Users.class, username);
+        
+        try {
+             if (username.equals(user.getUserName())){
+            System.out.println("testtest");
+        } else {
+            JOptionPane.showMessageDialog(null, "Bad Credentials!");
+        }
+        } catch (NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Bad credentials!");
+        }
+    }
     
 }

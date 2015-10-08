@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/src/dev/assignment/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/src/dev/entity/Users.java</file>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/src/dev/assignment/DevAssignment.java</file>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/src/dev/assignment/createUser.java</file>
-            <file>file:/C:/Users/eldin/Documents/NetBeansProjects/Dev%20assignment/nbproject/project.properties</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/dev/entity/Users.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/dev/assignment/charScreenController.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/entitymanagers/findStats.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/dev/entity/Charaters.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/dev/assignment/registerController.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/dev/assignment/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/Orlando/Documents/GitHub/Dev-assignment/src/entitymanagers/findUser.java</file>
         </group>
     </open-files>
 </project-private>

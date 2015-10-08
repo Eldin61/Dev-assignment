@@ -3,6 +3,8 @@
   <persistence-unit name="Dev_assignmentPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>dev.entity.Users</class>
+    <class>dev.entity.Servers</class>
+    <class>dev.entity.Charaters</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/mmorpgDB"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

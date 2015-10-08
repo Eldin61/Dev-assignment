@@ -6,14 +6,17 @@
 package dev.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,6 +38,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Users.findByBanned", query = "SELECT u FROM Users u WHERE u.banned = :banned"),
     @NamedQuery(name = "Users.findByLastPayment", query = "SELECT u FROM Users u WHERE u.lastPayment = :lastPayment")})
 public class Users implements Serializable {
+    @ManyToMany(mappedBy = "usersCollection")
+    private Collection<Charaters> charatersCollection;
+    @ManyToMany(mappedBy = "usersCollection")
+    private Collection<Servers> serversCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -169,6 +176,24 @@ public class Users implements Serializable {
     @Override
     public String toString() {
         return "dev.entity.Users[ userName=" + userName + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Charaters> getCharatersCollection() {
+        return charatersCollection;
+    }
+
+    public void setCharatersCollection(Collection<Charaters> charatersCollection) {
+        this.charatersCollection = charatersCollection;
+    }
+
+    @XmlTransient
+    public Collection<Servers> getServersCollection() {
+        return serversCollection;
+    }
+
+    public void setServersCollection(Collection<Servers> serversCollection) {
+        this.serversCollection = serversCollection;
     }
     
 }
