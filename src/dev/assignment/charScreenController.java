@@ -83,7 +83,7 @@ public class charScreenController implements Initializable{
         em.getTransaction().commit();
        
     
-        setOwns(inputName.getText());
+        setOwns(inputName.getText(), user);
         System.out.print("new user");
     }
     
@@ -106,13 +106,13 @@ public class charScreenController implements Initializable{
         );   
     }
     
-    public void setOwns(String Charname){
+    public void setOwns(String Charname, String username){
 
         em.getTransaction().begin();
         try {
             em.createNativeQuery("INSERT INTO owns(name, user_name) VALUES (?,?)")
                     .setParameter(1, Charname)
-                    .setParameter(2, Username)
+                    .setParameter(2, username)
                     .executeUpdate();
             em.getTransaction().commit();
         } catch (Exception e) {
