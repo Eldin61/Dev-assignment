@@ -50,7 +50,7 @@ public class charScreenController implements Initializable{
     TextField inputName;
     
     public void charScreenController(String username) throws Exception{
-//        uName.setText(user);
+      user = username;
     }
     
     @FXML
@@ -63,6 +63,14 @@ public class charScreenController implements Initializable{
     @FXML
     public void CreateCharacter(){
 
+        
+    }
+    
+    @FXML
+    private void getStats(ActionEvent event) throws Exception{
+        CreateCharacter();
+        uName.setText(user);
+        
         Charaters newCharacter = new Charaters();
         
         newCharacter.setName(inputName.getText());
@@ -77,12 +85,6 @@ public class charScreenController implements Initializable{
     
         setOwns(inputName.getText());
         System.out.print("new user");
-    }
-    
-    @FXML
-    private void getStats(ActionEvent event) throws Exception{
-        CreateCharacter();
-        //uName.setText(user);
     }
     
     @Override
