@@ -65,8 +65,19 @@ public class Users implements Serializable {
     private Boolean banned;
     @Column(name = "last_payment")
     private String lastPayment;
+    
+    static Users singleInstance = null;
 
     public Users() {
+    }
+    
+    public static Users getInstance() {
+     
+        if(null == singleInstance) {
+            singleInstance = new Users();
+        }
+     
+        return singleInstance;
     }
 
     public Users(String userName) {

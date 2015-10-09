@@ -11,6 +11,10 @@
       <Label fx:id="uName" layoutX="70.0" layoutY="76.0" prefHeight="20.0" prefWidth="73.0" text="User_name" />
       <Label fx:id="charname" layoutX="70.0" layoutY="135.0" text="character name" />
       <Label fx:id="classname" layoutX="70.0" layoutY="193.0" text="class" />
-      <Button fx:id="statbutton" layoutX="298.0" layoutY="71.0" mnemonicParsing="false" text="Get stats" />
+      <Button fx:id="statbutton" layoutX="298.0" layoutY="71.0" mnemonicParsing="false" onAction="#getStats" text="Get stats" />
+      <ComboBox fx:id="inputClass" layoutX="46.0" layoutY="294.0" prefWidth="150.0" />
+      <ComboBox fx:id="inputRace" layoutX="247.0" layoutY="294.0" prefWidth="150.0" />
+      <TextField fx:id="inputName" layoutX="435.0" layoutY="294.0" />
+      <Button fx:id="create" layoutX="663.0" layoutY="294.0" mnemonicParsing="false" onAction="#CreateCharacter" text="create" />
    </children>
 </AnchorPane>
