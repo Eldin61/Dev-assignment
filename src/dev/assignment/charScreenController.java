@@ -61,16 +61,7 @@ public class charScreenController implements Initializable{
         EntityManager em = emFactory.createEntityManager();
     
     @FXML
-    public void CreateCharacter(){
-
-        
-    }
-    
-    @FXML
-    private void getStats(ActionEvent event) throws Exception{
-        CreateCharacter();
-        uName.setText(user);
-        
+    private void CreateCharacter(ActionEvent event) throws Exception{
         Charaters newCharacter = new Charaters();
         
         newCharacter.setName(inputName.getText());
@@ -85,6 +76,13 @@ public class charScreenController implements Initializable{
     
         setOwns(inputName.getText(), user);
         System.out.print("new user");
+        
+    }
+    
+    @FXML
+    private void getStats(ActionEvent event) throws Exception{
+        uName.setText(user);
+           
     }
     
     @Override
