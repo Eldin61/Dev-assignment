@@ -188,5 +188,10 @@ public class charScreenController implements Initializable{
         charScreen cs = new charScreen();
         cs.close();
     }
+    @FXML
+    private void serverLogin(ActionEvent event) throws Exception{
+        serverWindow sw = new serverWindow();
+        sw.start(new Stage());
+    }
     
 }
