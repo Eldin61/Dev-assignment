@@ -16,5 +16,6 @@
       <ComboBox fx:id="inputRace" layoutX="247.0" layoutY="294.0" prefWidth="150.0" />
       <TextField fx:id="inputName" layoutX="435.0" layoutY="294.0" />
       <Button fx:id="create" layoutX="663.0" layoutY="294.0" mnemonicParsing="false" onAction="#CreateCharacter" text="create" />
+      <Button layoutX="304.0" layoutY="479.0" mnemonicParsing="false" onAction="#openDashboard" text="Orlando plz dashboard" />
    </children>
 </AnchorPane>

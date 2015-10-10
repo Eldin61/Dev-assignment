@@ -7,7 +7,10 @@ package dev.assignment;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 
 /**
  *
@@ -18,6 +21,17 @@ public class dashboardController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
       
+    }
+    
+    @FXML
+    private void backToChar(ActionEvent event) throws Exception{
+        charScreen cs = new charScreen();
+        cs.start(new Stage());
+        
+        dashboard db = new dashboard();
+        db.close();
+        
+        
     }
     
 }

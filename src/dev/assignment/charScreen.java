@@ -30,4 +30,8 @@ public class charScreen extends Application {
         stage.setResizable(false);
     }
     
+    public void close(){
+        primaryStage.close();
+    }
+    
 }

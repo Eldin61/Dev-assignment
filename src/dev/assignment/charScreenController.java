@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -119,6 +120,15 @@ public class charScreenController implements Initializable{
         } finally {
             em.close();
         }
+    }
+    
+    @FXML
+    private void openDashboard(ActionEvent event) throws Exception{
+        dashboard db = new dashboard();
+        db.start(new Stage());
+        
+        charScreen cs = new charScreen();
+        cs.close();
     }
     
 }

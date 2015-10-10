@@ -19,7 +19,7 @@ import org.eclipse.persistence.internal.libraries.asm.util.ASMifierAnnotationVis
  */
 public class dashboard extends Application{;
     
-    Stage stage;
+    static Stage stage;
     Parent root;
 
     @Override
@@ -32,6 +32,10 @@ public class dashboard extends Application{;
         stage.show();
         stage.setResizable(false);
         
+    }
+    
+    public void close(){
+        stage.close();
     }
     
 }
