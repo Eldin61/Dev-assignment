@@ -90,10 +90,9 @@ public class charScreenController implements Initializable{
     String Username = Users.getInstance().getUserName();
     private fxmlController controller = new fxmlController();
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
+   
     EntityManager em = emFactory.createEntityManager();
     
-    
-     //Users uname = em.find(Users.class, "iprototype");
     
     @FXML
     private void CreateCharacter(ActionEvent event) throws Exception{
@@ -110,16 +109,14 @@ public class charScreenController implements Initializable{
        
     
         setOwns(inputName.getText(), user);
-        System.out.print("new user");
+
         
     }
     
     @FXML
     private void getStats(ActionEvent event) throws Exception{
-        
-        //System.out.println(uname.getCharatersCollection().size()); 
+         
         String value=charSelectDD.getValue().toString();
-        System.out.println(value);
         
         String name = charSelectDD.getValue().toString();
         Charaters nickname = characterrefresh.get(name);
@@ -140,8 +137,7 @@ public class charScreenController implements Initializable{
            
            
            for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
-             characterrefresh.put(item.getName(), item);
-               System.out.println(item.getName());              
+             characterrefresh.put(item.getName(), item);              
                             
             } charSelectDD.getItems().clear(); 
         charSelectDD.getItems().addAll(characterrefresh.keySet());
@@ -181,9 +177,7 @@ public class charScreenController implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();
             em.getTransaction().rollback();
-        } //finally {
-//            em.close();
-//        }
+        } 
     }
         
     @FXML

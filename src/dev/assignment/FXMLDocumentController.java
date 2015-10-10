@@ -6,7 +6,6 @@
 package dev.assignment;
 
 import entitymanagers.findUser;
-import entitymanagers.findStats;
 
 import com.sun.corba.se.impl.logging.ActivationSystemException;
 import java.io.IOException;
@@ -43,7 +42,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception {
             findUser find = new findUser();
-            findStats stats = new findStats();
             charScreenController chara = new charScreenController();
             
             String username = userTF.getText();
