@@ -9,7 +9,11 @@ import dev.entity.Charaters;
 import dev.entity.Users;
 import java.net.URL;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +25,7 @@ import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -44,26 +49,32 @@ public class charScreenController implements Initializable{
     private Button create;
     
     @FXML
-    ComboBox inputClass;
-    @FXML
-    ComboBox inputRace;
-    @FXML
-    TextField inputName;
+    private ComboBox inputClass;
     
     @FXML
-    ComboBox charSelectDD;
+    private ComboBox inputRace;
     
     @FXML
-    Label charNameLabel;
+    private TextField inputName;
     
     @FXML
-    Label className;
+    private ComboBox charSelectDD;
+    
+    @FXML
+    private Label charNameLabel;
+    
+    @FXML
+    private Label className;
             
     @FXML
-    Label raceName;
+    private Label raceName;
             
     @FXML
-    Label levelName;
+    private Label levelName;
+    
+    public ObservableList<Charaters> characterlist = FXCollections.observableArrayList();
+    
+    public HashMap<String, Charaters> characterrefresh = new HashMap<String, Charaters>();
     
     public void charScreenController(String username) throws Exception{
       user = username;
@@ -74,7 +85,10 @@ public class charScreenController implements Initializable{
     String Username = Users.getInstance().getUserName();
     private fxmlController controller = new fxmlController();
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
-        EntityManager em = emFactory.createEntityManager();
+    EntityManager em = emFactory.createEntityManager();
+    
+    
+     //Users uname = em.find(Users.class, "iprototype");
     
     @FXML
     private void CreateCharacter(ActionEvent event) throws Exception{
@@ -97,7 +111,18 @@ public class charScreenController implements Initializable{
     
     @FXML
     private void getStats(ActionEvent event) throws Exception{
-        uName.setText(user);
+        //uName.setText(user);
+        System.out.println(user);
+        Users uname = em.find(Users.class, user);
+        
+        getOwns(user);
+        System.out.println(Username);
+        System.out.println(uname.getCharatersCollection().size()); 
+        
+        for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
+             characterrefresh.put(item.getName(), item);
+               System.out.println(item.getName());
+            }    
            
     }
     
@@ -117,7 +142,10 @@ public class charScreenController implements Initializable{
             "Blauw",
             "Groen",
             "Paars" 
-        );   
+        );  
+        
+            
+            
     }
     
     public void setOwns(String Charname, String username){
@@ -136,6 +164,23 @@ public class charScreenController implements Initializable{
             em.close();
         }
     }
+    
+    //get corresponding character name for the logged in username
+   
+    public void getOwns(String username){
+            
+        em.getTransaction().begin();
+        try{
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+    }
+    
     
     @FXML
     private void openDashboard(ActionEvent event) throws Exception{

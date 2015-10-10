@@ -20,13 +20,5 @@ import javax.swing.JOptionPane;
  */
 public class ownsService {
     
-    public  void testshit(){
     
-        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
-        EntityManager em = emFactory.createEntityManager();
-
-        Users user = new Users();
-        user.getCharatersCollection();
-        System.out.println(user.getCharatersCollection());
-    }
 }

@@ -53,9 +53,6 @@ public class FXMLDocumentController implements Initializable {
             find.findUser(username, password);
             find.findStats(username);
             chara.charScreenController(username);
-            
-            ownsService shit = new ownsService();
-            shit.testshit();
 
     }
     
