@@ -63,19 +63,19 @@ public class charScreenController implements Initializable{
     private TextField inputName;
     
     @FXML
-    private ComboBox charSelectDD;
+    public ComboBox charSelectDD;
     
     @FXML
-    private Label charNameLabel;
+    public Label charNameLabel;
     
     @FXML
-    private Label className;
+    public Label className;
             
     @FXML
-    private Label raceName;
+    public Label raceName;
             
     @FXML
-    private Label levelName;
+    public Label levelName;
     
     public ObservableList<Charaters> characterlist = FXCollections.observableArrayList();
     
@@ -100,7 +100,7 @@ public class charScreenController implements Initializable{
         Charaters newCharacter = new Charaters();
         
         newCharacter.setName(inputName.getText());
-        newCharacter.setLevel(1);
+        newCharacter.setLevel((int) (Math.random() * 99 + 1));
         newCharacter.setRace(inputRace.getValue().toString());
         newCharacter.setClass1(inputClass.getValue().toString());
         
@@ -116,13 +116,17 @@ public class charScreenController implements Initializable{
     
     @FXML
     private void getStats(ActionEvent event) throws Exception{
-        //uName.setText(user);
-        System.out.println(user);
         
-        getOwns(user);
-        System.out.println(Username);
         //System.out.println(uname.getCharatersCollection().size()); 
+        String value=charSelectDD.getValue().toString();
+        System.out.println(value);
         
+        String name = charSelectDD.getValue().toString();
+        Charaters nickname = characterrefresh.get(name);
+        charNameLabel.setText(nickname.getName());
+        className.setText(nickname.getClass1());
+        raceName.setText(nickname.getRace());
+        levelName.setText(nickname.getLevel()+ "");
       
         
         
@@ -131,15 +135,15 @@ public class charScreenController implements Initializable{
     
     @FXML
     private void loadChars(ActionEvent event) throws Exception{
+
            Users uname = em.find(Users.class, user);
+           
            
            for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
              characterrefresh.put(item.getName(), item);
-               System.out.println(item.getName());
-               
-                 
-            
-            }  
+               System.out.println(item.getName());              
+                            
+            } charSelectDD.getItems().clear(); 
         charSelectDD.getItems().addAll(characterrefresh.keySet());
     }
     
@@ -177,27 +181,11 @@ public class charScreenController implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();
             em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
+        } //finally {
+//            em.close();
+//        }
     }
-    
-    //get corresponding character name for the logged in username
-   
-    public void getOwns(String username){
-            
-        em.getTransaction().begin();
-        try{
-            
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-    }
-    
+        
     @FXML
     private void openDashboard(ActionEvent event) throws Exception{
         dashboard db = new dashboard();
