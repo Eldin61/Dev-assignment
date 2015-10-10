@@ -50,6 +50,21 @@ public class charScreenController implements Initializable{
     @FXML
     TextField inputName;
     
+    @FXML
+    ComboBox charSelectDD;
+    
+    @FXML
+    Label charNameLabel;
+    
+    @FXML
+    Label className;
+            
+    @FXML
+    Label raceName;
+            
+    @FXML
+    Label levelName;
+    
     public void charScreenController(String username) throws Exception{
       user = username;
     }
