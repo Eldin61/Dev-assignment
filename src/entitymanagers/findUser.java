@@ -62,24 +62,4 @@ public class findUser {
         }
     }
     
-    public void getUserInfo(String username) throws Exception{
-         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
-        EntityManager em = emFactory.createEntityManager();
-        Users user = em.find(Users.class, "iprototype");
-        
-        int charSlots = user.getCharacterSlots();
-        int balance = user.getBalance();
-        int monthsPayed = user.getMonthsPayed();
-        
-        dashboard db = new dashboard();
-        
-        System.out.println(balance + " " + monthsPayed + " " + charSlots);
-        
-        db.setBalance(balance);
-        db.start(new Stage());
-        
-        charScreen cs = new charScreen();
-        cs.close();
-    }
-    
 }

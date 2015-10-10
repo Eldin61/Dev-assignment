@@ -189,11 +189,8 @@ public class charScreenController implements Initializable{
     @FXML
     private void openDashboard(ActionEvent event) throws Exception{
         dashboard db = new dashboard();
-        //db.start(new Stage());
-        findUser userFind = new findUser();
-        userFind.getUserInfo(Username);
-        
-        
+        db.start(new Stage());
+
         charScreen cs = new charScreen();
         cs.close();
     }

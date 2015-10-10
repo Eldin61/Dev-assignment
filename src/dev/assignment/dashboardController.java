@@ -12,10 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,11 +28,18 @@ public class dashboardController implements Initializable{
     public static String username;
     
     @FXML
+    private TextField balanceTF;
+    
+    @FXML
     private Label balanceLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      dashboard db = new dashboard();
+      setInfo();
+    }
+    
+    private void setInfo(){
+        dashboard db = new dashboard();
        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
         EntityManager em = emFactory.createEntityManager();
         Users user = em.find(Users.class, username);
@@ -42,6 +51,36 @@ public class dashboardController implements Initializable{
       String balanceS = Integer.toString(balance);
       
       balanceLabel.setText(balanceS);
+      
+      em.close();
+      emFactory.close();
+    }
+    
+    @FXML
+    private void addBalance(){
+        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Dev_assignmentPU");
+        
+        EntityManager em = emFactory.createEntityManager();
+        em.getTransaction().begin();
+        Users user = em.find(Users.class, username);
+        
+        int balance = 0;
+        try {
+            balance = Integer.parseInt(balanceTF.getText());
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, "You can only enter numbers here.");
+        }
+        int balanceNow = Integer.parseInt(balanceLabel.getText());
+        int calculatedBalance = balance + balanceNow;
+        balanceLabel.setText(Integer.toString(calculatedBalance));
+        
+        user.setBalance(calculatedBalance);
+        
+        em.getTransaction().commit();
+        
+        em.close();
+        emFactory.close();
+        
     }
     
     @FXML
