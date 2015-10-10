@@ -7,6 +7,7 @@ package dev.assignment;
 
 import dev.entity.Charaters;
 import dev.entity.Users;
+import entitymanagers.findUser;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import sun.plugin2.message.CustomSecurityManagerAckMessage;
 
 /**
  *
@@ -139,11 +141,10 @@ public class charScreenController implements Initializable{
     
     @FXML
     private void openDashboard(ActionEvent event) throws Exception{
-        dashboard db = new dashboard();
-        db.start(new Stage());
+        findUser userFind = new findUser();
+        userFind.getUserInfo(Username);
         
-        charScreen cs = new charScreen();
-        cs.close();
+        
     }
     
 }

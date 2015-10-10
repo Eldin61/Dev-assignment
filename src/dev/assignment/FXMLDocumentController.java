@@ -50,6 +50,9 @@ public class FXMLDocumentController implements Initializable {
             
             String password = passTF.getText();
             
+            dashboardController dbce = new dashboardController();
+            dbce.username = username;
+            
             find.findUser(username, password);
             find.findStats(username);
             chara.charScreenController(username);

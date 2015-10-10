@@ -9,7 +9,7 @@
 <AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.assignment.dashboardController">
    <children>
       <Label layoutX="74.0" layoutY="44.0" text="Available balance: " />
-      <Label layoutX="208.0" layoutY="44.0" text="0,00" />
+      <Label fx:id="balanceLabel" layoutX="208.0" layoutY="44.0" text="0,00" />
       <Label layoutX="69.0" layoutY="235.0" text="Subscribed months: " />
       <Label layoutX="205.0" layoutY="235.0" text="0" />
       <Label layoutX="425.0" layoutY="44.0" text="Character slots: " />

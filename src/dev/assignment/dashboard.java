@@ -21,6 +21,8 @@ public class dashboard extends Application{;
     
     static Stage stage;
     Parent root;
+    
+    private int balance;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,4 +40,11 @@ public class dashboard extends Application{;
         stage.close();
     }
     
+    public void setBalance(int balance){
+        this.balance = balance;
+    }
+    
+    public int getBalance(){
+        return balance;
+    }
 }
