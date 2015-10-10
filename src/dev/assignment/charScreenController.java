@@ -27,7 +27,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import javax.persistence.Query;
 
+import sun.plugin2.message.CustomSecurityManagerAckMessage;
 
 
 /**
@@ -75,15 +77,6 @@ public class charScreenController implements Initializable{
     @FXML
     public Label levelName;
     
-    @FXML
-    public Button serverLogin;
-    
-    @FXML
-    public Label serverCount;
-    
-    @FXML
-    public Button dcButton;
-    
     public ObservableList<Charaters> characterlist = FXCollections.observableArrayList();
     
     public HashMap<String, Charaters> characterrefresh = new HashMap<String, Charaters>();
@@ -100,7 +93,7 @@ public class charScreenController implements Initializable{
     EntityManager em = emFactory.createEntityManager();
     
     
-    
+     //Users uname = em.find(Users.class, "iprototype");
     
     @FXML
     private void CreateCharacter(ActionEvent event) throws Exception{
@@ -124,9 +117,9 @@ public class charScreenController implements Initializable{
     @FXML
     private void getStats(ActionEvent event) throws Exception{
         
-        
+        //System.out.println(uname.getCharatersCollection().size()); 
         String value=charSelectDD.getValue().toString();
-        
+        System.out.println(value);
         
         String name = charSelectDD.getValue().toString();
         Charaters nickname = characterrefresh.get(name);
@@ -148,7 +141,7 @@ public class charScreenController implements Initializable{
            
            for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
              characterrefresh.put(item.getName(), item);
-                           
+               System.out.println(item.getName());              
                             
             } charSelectDD.getItems().clear(); 
         charSelectDD.getItems().addAll(characterrefresh.keySet());
@@ -188,7 +181,9 @@ public class charScreenController implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();
             em.getTransaction().rollback();
-        } 
+        } //finally {
+//            em.close();
+//        }
     }
         
     @FXML
@@ -198,15 +193,6 @@ public class charScreenController implements Initializable{
 
         charScreen cs = new charScreen();
         cs.close();
-    }
-    @FXML
-    private void serverLogin(ActionEvent event) throws Exception{
-        
-    }
-    
-    @FXML
-    private void dcButtonAction(ActionEvent event) throws Exception{
-        
     }
     
 }
