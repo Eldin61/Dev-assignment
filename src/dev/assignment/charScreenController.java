@@ -118,17 +118,29 @@ public class charScreenController implements Initializable{
     private void getStats(ActionEvent event) throws Exception{
         //uName.setText(user);
         System.out.println(user);
-        Users uname = em.find(Users.class, user);
         
         getOwns(user);
         System.out.println(Username);
-        System.out.println(uname.getCharatersCollection().size()); 
+        //System.out.println(uname.getCharatersCollection().size()); 
         
-        for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
+      
+        
+        
+           
+    }
+    
+    @FXML
+    private void loadChars(ActionEvent event) throws Exception{
+           Users uname = em.find(Users.class, user);
+           
+           for (Charaters item : uname.getCharatersCollection()) { // loop kijkt naar username > characters en pompt ze in een list
              characterrefresh.put(item.getName(), item);
                System.out.println(item.getName());
-            }    
-           
+               
+                 
+            
+            }  
+        charSelectDD.getItems().addAll(characterrefresh.keySet());
     }
     
     @Override
