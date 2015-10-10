@@ -26,11 +26,11 @@ import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-<<<<<<< HEAD
+
 import javax.persistence.Query;
-=======
+
 import sun.plugin2.message.CustomSecurityManagerAckMessage;
->>>>>>> origin/master
+
 
 /**
  *
